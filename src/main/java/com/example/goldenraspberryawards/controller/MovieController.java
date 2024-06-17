@@ -1,15 +1,14 @@
 package com.example.goldenraspberryawards.controller;
 
-import com.example.goldenraspberryawards.model.Movie;
-import com.example.goldenraspberryawards.repository.MovieRepository;
-import com.example.goldenraspberryawards.service.MovieService;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Map;
+import com.example.goldenraspberryawards.model.Movie;
+import com.example.goldenraspberryawards.service.MovieService;
 
 @RestController
 public class MovieController {
