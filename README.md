@@ -13,7 +13,7 @@ Maven 3.6.0 ou superior
 Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/golden-raspberry-awards.git
+git clone https://github.com/DiogoEller/golden-raspberry-awards.git
 cd golden-raspberry-awards
 ```
 
