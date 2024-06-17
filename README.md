@@ -180,7 +180,7 @@ mvn test
 
 Quando o sistema está sendo executado, você tem à disposição os seguintes endpoints:
 
-### `GET /movies`
+### `GET /api/movies`
 
 Retorna uma lista de todos os filmes na base de dados.
 
@@ -215,7 +215,7 @@ Retorna uma lista de todos os filmes na base de dados.
 ]
 ```
 
-### `GET /winners`
+### `GET /api/winners`
 
 Retorna uma lista de todos os filmes que ganharam o prêmio.
 
@@ -250,7 +250,7 @@ Retorna uma lista de todos os filmes que ganharam o prêmio.
 ]
 ```
 
-### `GET /producers`
+### `GET /api/producers`
 
 Retorna uma lista de produtores com os intervalos entre os prêmios ganhos.
 
