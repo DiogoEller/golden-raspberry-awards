@@ -175,3 +175,104 @@ mvn test
 - `src/main/java`: Contém o código fonte da aplicação.
 - `src/test/java`: Contém os testes unitários e de integração.
 - `src/main/resources`: Contém os recursos estáticos como arquivos CSV.
+
+## Endpoints Disponíveis
+
+Quando o sistema está sendo executado, você tem à disposição os seguintes endpoints:
+
+### `GET /movies`
+
+Retorna uma lista de todos os filmes na base de dados.
+
+**Exemplo de resposta:**
+
+```json
+[
+    {
+        "id": 1,
+        "title": "Movie A",
+        "year": 2000,
+        "studios": "Studio X",
+        "producers": "Producer A",
+        "winner": true
+    },
+    {
+        "id": 2,
+        "title": "Movie B",
+        "year": 2005,
+        "studios": "Studio Y",
+        "producers": "Producer B",
+        "winner": false
+    },
+    {
+        "id": 3,
+        "title": "Movie C",
+        "year": 2010,
+        "studios": "Studio Z",
+        "producers": "Producer C",
+        "winner": false
+    }
+]
+```
+
+### `GET /winners`
+
+Retorna uma lista de todos os filmes que ganharam o prêmio.
+
+**Exemplo de resposta:**
+
+```json
+[
+    {
+        "id": 1,
+        "title": "Movie A",
+        "year": 2000,
+        "studios": "Studio X",
+        "producers": "Producer A",
+        "winner": true
+    },
+    {
+        "id": 2,
+        "title": "Movie B",
+        "year": 2005,
+        "studios": "Studio Y",
+        "producers": "Producer B",
+        "winner": true
+    },
+    {
+        "id": 3,
+        "title": "Movie C",
+        "year": 2010,
+        "studios": "Studio Z",
+        "producers": "Producer C",
+        "winner": true
+    }
+]
+```
+
+### `GET /producers`
+
+Retorna uma lista de produtores com os intervalos entre os prêmios ganhos.
+
+**Exemplo de resposta:**
+
+```json
+{
+    "min": [
+        {
+            "producer": "Producer A",
+            "interval": 1,
+            "previousWin": 2000,
+            "followingWin": 2001
+        }
+    ],
+    "max": [
+        {
+            "producer": "Producer B",
+            "interval": 5,
+            "previousWin": 2010,
+            "followingWin": 2015
+        }
+    ]
+}
+```
