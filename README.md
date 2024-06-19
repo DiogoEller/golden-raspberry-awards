@@ -259,7 +259,7 @@ Retorna uma lista de todos os filmes que ganharam o prêmio.
 
 ### `GET /api/producers`
 
-Retorna uma lista de produtores com os intervalos entre os prêmios ganhos.
+Retorna o produtor com maior intervalo entre dois prêmios consecutivos, e o que obteve dois prêmios mais rápido. Podendo vir mais de um para cada situação.
 
 **Exemplo de resposta:**
 
