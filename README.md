@@ -187,7 +187,7 @@ mvn test
 
 Quando o sistema está sendo executado, você tem à disposição os seguintes endpoints:
 
-### `GET /api/movies`
+### `GET http://localhost:8080/api/movies`
 
 Retorna uma lista de todos os filmes na base de dados.
 
@@ -222,7 +222,7 @@ Retorna uma lista de todos os filmes na base de dados.
 ]
 ```
 
-### `GET /api/winners`
+### `GET http://localhost:8080/api/winners`
 
 Retorna uma lista de todos os filmes que ganharam o prêmio.
 
@@ -257,7 +257,7 @@ Retorna uma lista de todos os filmes que ganharam o prêmio.
 ]
 ```
 
-### `GET /api/producers`
+### `GET http://localhost:8080/api/producers`
 
 Retorna o produtor com maior intervalo entre dois prêmios consecutivos, e o que obteve dois prêmios mais rápido. Podendo vir mais de um para cada situação.
 
