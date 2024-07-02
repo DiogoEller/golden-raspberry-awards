@@ -50,11 +50,6 @@ public class MovieService {
             e.printStackTrace();
         }
     }
-
-    // Método para obter todos os filmes
-    public List<Movie> getAllMovies() {
-        return movieRepository.findAll();
-    }
     
     // Método para obter filmes vencedores
     public List<Movie> getWinningMovies() {
