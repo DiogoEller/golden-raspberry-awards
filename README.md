@@ -138,40 +138,28 @@ mvn spring-boot:run
 
 ### Usando um IDE (Eclipse, IntelliJ, etc.)
 
-Importar o projeto como um projeto Maven existente e executar a classe `GoldenRaspberryAwardsApplication` como uma aplicação Java.
+Importar o projeto como um projeto Maven existente e executar a classe `GoldenRaspberryAwardsApplication.java` como uma aplicação Java.
 
 ## Configuração de Arquivo CSV
 
-A aplicação carrega os dados dos filmes a partir de um arquivo CSV localizado em `src/main/resources`. Existem dois arquivos CSV:
-
-- `movielist.csv`: Usado na execução normal da aplicação.
-- `movielist-test.csv`: Usado nos testes de integração.
+A aplicação carrega os dados dos filmes a partir de um arquivo CSV localizado em `src/main/resources`. Este arquivo é usado tanto na execução normal da aplicação quanto nos testes de integração.
 
 > [!IMPORTANT]
-> Para rodar a aplicação principal ou os testes de integração, é necessário alterar manualmente a configuração do arquivo CSV no arquivo `application.properties` para corresponder ao nome do arquivo CSV que você deseja utilizar.
+> O arquivo CSV utilizado originalmente é `movielist.csv`.
 
 ### Executando a Aplicação Principal
 
-Para executar a aplicação principal, certifique-se de que o arquivo `application.properties` está configurado para usar o `movielist.csv`:
+Para executar a aplicação principal, certifique-se de que o arquivo `application.properties` (em `golden-raspberry-awards\src\main\resources\application.properties`) está configurado para usar o `movielist.csv`:
 
 ```properties
-csv.file-path=movielist.csv
+csv.file-path=/movielist.csv
 ```
 
-### Executando os Testes de Integração
-
-Para executar os testes de integração, altere o arquivo `application.properties` para usar o `movielist-test.csv`:
-
-```properties
-csv.file-path=movielist-test.csv
-```
-
-> [!NOTE]
-> Se você alterar o nome ou o conteúdo do arquivo CSV, certifique-se de atualizar a configuração `csv.file-path` para refletir o nome correto do arquivo.
+Se desejar usar um arquivo CSV diferente, basta renomeá-lo e atualizar o caminho no application.properties para corresponder ao novo nome do arquivo.
 
 ## Executando os Testes de Integração
 
-Os testes de integração são configurados para usar um arquivo CSV de teste (`movielist-test.csv`). Para executar os testes, use o Maven:
+Os testes de integração são configurados para usar o arquivo CSV original (`movielist.csv`). Para executar os testes, use o comando Maven:
 
 ```bash
 mvn test
@@ -180,84 +168,14 @@ mvn test
 ## Estrutura do Projeto
 
 - `src/main/java`: Contém o código fonte da aplicação.
-- `src/test/java`: Contém os testes unitários e de integração.
-- `src/main/resources`: Contém os recursos estáticos como arquivos CSV.
+- `src/test/java`: Contém os testes integração.
+- `src/main/resources`: Contém o arquivo CSV.
 
-## Endpoints Disponíveis
+## Endpoint Disponível
 
-Quando o sistema está sendo executado, você tem à disposição os seguintes endpoints:
+Quando o sistema está sendo executado, você tem à disposição o seguinte endpoint:
 
-### `GET http://localhost:8080/api/movies`
-
-Retorna uma lista de todos os filmes na base de dados.
-
-**Exemplo de resposta:**
-
-```json
-[
-    {
-        "id": 1,
-        "title": "Movie A",
-        "year": 2000,
-        "studios": "Studio X",
-        "producers": "Producer A",
-        "winner": true
-    },
-    {
-        "id": 2,
-        "title": "Movie B",
-        "year": 2005,
-        "studios": "Studio Y",
-        "producers": "Producer B",
-        "winner": false
-    },
-    {
-        "id": 3,
-        "title": "Movie C",
-        "year": 2010,
-        "studios": "Studio Z",
-        "producers": "Producer C",
-        "winner": false
-    }
-]
-```
-
-### `GET http://localhost:8080/api/winners`
-
-Retorna uma lista de todos os filmes que ganharam o prêmio.
-
-**Exemplo de resposta:**
-
-```json
-[
-    {
-        "id": 1,
-        "title": "Movie A",
-        "year": 2000,
-        "studios": "Studio X",
-        "producers": "Producer A",
-        "winner": true
-    },
-    {
-        "id": 2,
-        "title": "Movie B",
-        "year": 2005,
-        "studios": "Studio Y",
-        "producers": "Producer B",
-        "winner": true
-    },
-    {
-        "id": 3,
-        "title": "Movie C",
-        "year": 2010,
-        "studios": "Studio Z",
-        "producers": "Producer C",
-        "winner": true
-    }
-]
-```
-
-### `GET http://localhost:8080/api/producers`
+### `GET /api/producers`
 
 Retorna o produtor com maior intervalo entre dois prêmios consecutivos, e o que obteve dois prêmios mais rápido. Podendo vir mais de um para cada situação.
 
@@ -283,3 +201,26 @@ Retorna o produtor com maior intervalo entre dois prêmios consecutivos, e o que
     ]
 }
 ```
+
+## Testando o Endpoint
+
+Você pode testar o endpoint de várias maneiras, aqui estão algumas opções:
+
+### Usando o Postman
+
+1. Baixe e instale o [Postman](https://www.postman.com/downloads/).
+2. Abra o Postman e crie uma nova requisição.
+3. Defina o método HTTP como `GET` e insira a URL `http://localhost:8080/api/producers`.
+4. Clique em "Send" para enviar a requisição e ver a resposta.
+
+### Usando o Curl
+
+Abra um terminal e execute o seguinte comando:
+
+```sh
+curl -X GET http://localhost:8080/api/producers
+```
+
+### Usando o Navegador
+
+Abra o seu navegador preferido e insira a URL http://localhost:8080/api/producers. Pressione Enter para ver a resposta.
